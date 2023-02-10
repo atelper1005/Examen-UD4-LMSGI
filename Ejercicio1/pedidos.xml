@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pedidos SYSTEM "pedidos.dtd">
+<pedidos>
+    <sucursal codigo="A1234567">
+        <direccion>Calle María de la Luz, 2</direccion>
+        <nom_empleado>Pepito Grillo</nom_empleado>
+        <fecha_pedido>10/02/2020</fecha_pedido>
+        <observaciones>Entregar por la tarde</observaciones>
+        <articulos codigo="132-ABC">
+            <num_unidades>3</num_unidades>
+            <precio_unidad>9</precio_unidad>
+            <precio_unidad>2,9</precio_unidad>
+            <precio_unidad>6,9</precio_unidad>
+            <observaciones_articulo>Segunda Mano</observaciones_articulo>
+            <plazo>23 días</plazo>
+        </articulos>
+    </sucursal>
+</pedidos>

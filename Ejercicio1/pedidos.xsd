@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="pedidos" type="pedidosDatos" />
+    <xsd:complexType name="pedidosDatos">
+        <xsd:sequence>
+            <xsd:element name="sucursal" type="sucursalDatos" minOccurs="1" maxOccurs="unbounded" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="sucursalDatos">
+        <xsd:sequence>
+            <xsd:element name="direccion" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+            <xsd:element name="nom_empleado" type="xsd:string" />
+            <xsd:element name="fecha_pedido" type="xsd:date" />
+            <xsd:element name="observaciones" type="xsd:string" minOccurs="0" />
+            <xsd:element name="articulos" type="articulosDatos" minOccurs="1" maxOccurs="unbounded" />
+        </xsd:sequence>
+        <xsd:attribute name="codigo" type="codigoTipo" use="required" />
+    </xsd:complexType>
+    <xsd:simpleType name="codigoTipo">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[A-Z]([A-Za-z0-9]){7}" />
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="articulosDatos">
+        <xsd:sequence>
+            <xsd:element name="num_unidades" minOccurs="1" maxOccurs="unbounded"/>
+            <xsd:element name="precio_articulos" minOccurs="1" maxOccurs="unbounded" />
+            <xsd:element name="observaciones"/>
+            <xsd:element name="plazo" type="xsd:dateTime"/>
+        </xsd:sequence>
+        <xsd:attribute name="codigo" type="codigoArticulos" use="required" />
+    </xsd:complexType>
+    <xsd:simpleType name="codigoArticulos">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-9]{3}-[A-Z]{3}" />
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>
